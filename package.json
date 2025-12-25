@@ -40,6 +40,9 @@
     "react-redux": "^9.1.2",
     "typescript": "^5.7.2"
   },
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "peerDependencies": {
     "react": ">=18"
   }
