@@ -32,7 +32,7 @@
     "url": "https://github.com/MRSevim/react-quiz-kit/issues"
   },
   "homepage": "https://github.com/MRSevim/react-quiz-kit#readme",
-  "devDependencies": {
+  "dependencies": {
     "@reduxjs/toolkit": "^2.4.0",
     "@types/react": "^18.3.13",
     "prop-types": "^15.8.1",
