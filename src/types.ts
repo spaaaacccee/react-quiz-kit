@@ -1,45 +1,4 @@
-export interface QuizData {
-  //This is your quizData prop's (passed to QuizProvider) interface.
-  //This data does not change during the quiz.
-  title: string; // Title of the quiz
-  description?: string; // Optional description
-  questions: Question[]; // Array of questions
-  timeLimit?: number; // Optional time limit for the entire quiz in seconds
-}
-
-interface BaseQuestion {
-  id: string;
-  text: string;
-  // Base 64 encoded image or url to the image
-  image?: string;
-  explanation?: string;
-  incorrectMessage?: string;
-  timeLimit?: number;
-  points?: number;
-}
-
-type MultipleChoiceQuestion = BaseQuestion & {
-  type: "multiple-choice";
-  options: string[];
-  correctAnswer: string | string[];
-};
-
-type TrueFalseQuestion = BaseQuestion & {
-  type: "true-false";
-  correctAnswer: "true" | "false";
-};
-
-type ShortAnswerQuestion = BaseQuestion & {
-  type: "short-answer";
-  // Use this to validate the answer
-  validationRegex?: string;
-  correctAnswer: string | string[];
-};
-
-export type Question =
-  | MultipleChoiceQuestion
-  | TrueFalseQuestion
-  | ShortAnswerQuestion;
+import { QuizData } from "./schemas";
 
 export interface UserResponse {
   questionId: string; // ID of the question

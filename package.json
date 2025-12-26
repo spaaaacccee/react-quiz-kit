@@ -1,6 +1,6 @@
 {
   "name": "react-quiz-kit",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "library for creating quizzes on react",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -38,7 +38,8 @@
     "prop-types": "^15.8.1",
     "react": "^19.2.1",
     "react-redux": "^9.1.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "zod": "^4.2.1"
   },
   "exports": {
     ".": "./src/index.ts"
