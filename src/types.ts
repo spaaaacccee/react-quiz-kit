@@ -7,17 +7,39 @@ export interface QuizData {
   timeLimit?: number; // Optional time limit for the entire quiz in seconds
 }
 
-export interface Question {
-  id: string; // ID of the question
-  text: string; // The question text
-  type: "multiple-choice" | "true-false" | "short-answer"; // Type of question
-  options?: string[]; // Array of options (only for multiple-choice)
-  correctAnswer: string | string[]; // Correct answer (string or array for multiple correct answers)
-  explanation?: string; // Optional explanation for the correct answer
-  incorrectMessage?: string; // Optional message for the incorrect answer
-  timeLimit?: number; // Optional time limit for the question in seconds
-  points?: number; //Optional points for the question
+interface BaseQuestion {
+  id: string;
+  text: string;
+  // Base 64 encoded image or url to the image
+  image?: string;
+  explanation?: string;
+  incorrectMessage?: string;
+  timeLimit?: number;
+  points?: number;
 }
+
+type MultipleChoiceQuestion = BaseQuestion & {
+  type: "multiple-choice";
+  options: string[];
+  correctAnswer: string | string[];
+};
+
+type TrueFalseQuestion = BaseQuestion & {
+  type: "true-false";
+  correctAnswer: "true" | "false";
+};
+
+type ShortAnswerQuestion = BaseQuestion & {
+  type: "short-answer";
+  // Use this to validate the answer
+  validationRegex?: string;
+  correctAnswer: string | string[];
+};
+
+export type Question =
+  | MultipleChoiceQuestion
+  | TrueFalseQuestion
+  | ShortAnswerQuestion;
 
 export interface UserResponse {
   questionId: string; // ID of the question
