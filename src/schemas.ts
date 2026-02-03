@@ -4,7 +4,7 @@ import { z } from "zod";
  * BaseQuestion
  */
 export const baseQuestionSchema = z.object({
-  id: z.string(),
+  id: z.string().optional(),
   text: z.string(),
   // Base64-encoded image or URL
   image: z.string().optional(),
