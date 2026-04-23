@@ -134,7 +134,7 @@ export const quizSlice = createSlice({
         Array.isArray(question.correctAnswer) &&
         !Array.isArray(selectedAnswer)
       ) {
-        isCorrect = false;
+        isCorrect = question.correctAnswer.includes(selectedAnswer);
       } else {
         isCorrect = question.correctAnswer === selectedAnswer;
       }
